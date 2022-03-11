@@ -3,15 +3,18 @@ import { useGetFilmsQuery } from '../services/swapApi'
 import { nanoid } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { addFave } from '../features/faves'
+import FilmDetails from './FilmDetails'
 
 const Films = () => {
 	const { data, isError, isLoading } = useGetFilmsQuery()
 	const dispatch = useDispatch()
-	const addToFavourites = e => {
+	const selectFilm = e => {
 		const { title } = e.currentTarget.dataset
 		const film = data.results.find(film => film.title === title)
-		dispatch(addFave(film))
+		return film
 	}
+	const addToFavourites = e => dispatch(addFave(selectFilm(e)))
+
 	if (isLoading) {
 		return <Loader active={isLoading} />
 	}
@@ -29,6 +32,7 @@ const Films = () => {
 							<Card.Description>{film.opening_crawl}</Card.Description>
 						</Card.Content>
 						<Card.Content extra>
+							<FilmDetails details={film} />
 							<Button data-title={film.title} positive content="Add to favourites" onClick={addToFavourites} />
 						</Card.Content>
 					</Card>
