@@ -1,8 +1,17 @@
-import { Loader, Message } from 'semantic-ui-react'
+import { Button, Card, Loader, Message } from 'semantic-ui-react'
 import { useGetFilmsQuery } from '../services/swapApi'
+import { nanoid } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
+import { addFave } from '../features/faves'
 
 const Films = () => {
 	const { data, isError, isLoading } = useGetFilmsQuery()
+	const dispatch = useDispatch()
+	const addToFavourites = e => {
+		const { title } = e.currentTarget.dataset
+		const film = data.results.find(film => film.title === title)
+		dispatch(addFave(film))
+	}
 	if (isLoading) {
 		return <Loader active={isLoading} />
 	}
@@ -10,9 +19,22 @@ const Films = () => {
 		return <Message error={isError}>There was an error</Message>
 	}
 	if (data && Boolean(data?.results?.length)) {
-		return data.results.map(film => {
-			return <h2>{film.title}</h2>
-		})
+		return (
+			<Card.Group>
+				{data.results.map(film => (
+					<Card key={nanoid()}>
+						<Card.Content>
+							<Card.Header>{film.title}</Card.Header>
+							{film && film.characters && <Card.Meta> characters : {film.characters.length}</Card.Meta>}
+							<Card.Description>{film.opening_crawl}</Card.Description>
+						</Card.Content>
+						<Card.Content extra>
+							<Button data-title={film.title} positive content="Add to favourites" onClick={addToFavourites} />
+						</Card.Content>
+					</Card>
+				))}
+			</Card.Group>
+		)
 	} else if (data?.results?.length === 0) {
 		return <Message warning>no films found</Message>
 	}

@@ -9,7 +9,6 @@ export const appSlice = createSlice({
 	initialState,
 	reducers: {
 		setCurrent: (state, action) => {
-			console.log('current', action.payload)
 			state.current = action.payload
 		},
 	},
