@@ -26,7 +26,6 @@ export const swapApi = createApi({
 		}),
 		getSearch: builder.mutation({
 			query: ({ str, filter }) => {
-				console.log(filter, str)
 				return `${filter}/?search=${str}&format=json`
 			},
 		}),

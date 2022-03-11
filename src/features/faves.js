@@ -13,7 +13,7 @@ export const favesSlice = createSlice({
 	reducers: {
 		addFave: (state, action) => {
 			const fave = createFave(action.payload)
-			state.fave.push(fave)
+			state.push(fave)
 		},
 		rateFave: (state, action) => {
 			// find fave
