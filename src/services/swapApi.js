@@ -2,8 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // Define a service using a base URL and expected endpoints
 export const swapApi = createApi({
-	reducerPath: 'pokemonApi',
+	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/' }),
+	tagTypes: ['Films'],
 	endpoints: builder => ({
 		getFilms: builder.query({
 			query: () => `films/?format=json`,
@@ -23,8 +24,20 @@ export const swapApi = createApi({
 		getStarship: builder.query({
 			query: id => `starships/${id}?format=json`,
 		}),
+		getSearch: builder.mutation({
+			query: ({ str, filter }) => {
+				return `${filter}/?search=${str}&format=json`
+			},
+		}),
 	}),
 })
 
-export const { useGetStarshipQuery, useGetFilmQuery, useGetStarshipsQuery, useGetCharacterQuery, useGetFilmsQuery, useGetCharactersQuery } =
-	swapApi
+export const {
+	useGetSearchMutation,
+	useGetStarshipQuery,
+	useGetFilmQuery,
+	useGetStarshipsQuery,
+	useGetCharacterQuery,
+	useGetFilmsQuery,
+	useGetCharactersQuery,
+} = swapApi

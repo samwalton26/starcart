@@ -13,11 +13,11 @@ const ShowButtons = () => {
 			</Header>
 			<Divider hidden />
 			<Button.Group>
-				<Button active={current === 'film'} onClick={() => handleUpdateCurrent('film')}>
+				<Button active={current === 'films'} onClick={() => handleUpdateCurrent('films')}>
 					<Icon name="film" />
 					Films
 				</Button>
-				<Button active={current === 'people'} onClick={() => handleUpdateCurrent('people')}>
+				<Button active={current === 'characters'} onClick={() => handleUpdateCurrent('characters')}>
 					<Icon name="users" />
 					Characters
 				</Button>

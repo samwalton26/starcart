@@ -4,6 +4,7 @@ import { selectCurrent } from './features/app'
 import Main from './Main'
 import { useSelector } from 'react-redux'
 import Films from './components/Films'
+import Characters from './components/Characters'
 function App() {
 	const current = useSelector(selectCurrent)
 	return (
@@ -16,7 +17,10 @@ function App() {
 				</Segment>
 			</Container>
 			<Container>
-				<Segment fluid>{current === 'films' && <Films />}</Segment>
+				<Segment fluid>
+					{current === 'films' && <Films />}
+					{current === 'characters' && <Characters />}
+				</Segment>
 			</Container>
 		</>
 	)

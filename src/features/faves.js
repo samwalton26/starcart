@@ -10,10 +10,10 @@ const initialState = []
 export const favesSlice = createSlice({
 	name: 'faves',
 	initialState,
-	reducer: {
+	reducers: {
 		addFave: (state, action) => {
 			const fave = createFave(action.payload)
-			state.fave.push(fave)
+			state.push(fave)
 		},
 		rateFave: (state, action) => {
 			// find fave
@@ -27,3 +27,4 @@ export const favesSlice = createSlice({
 })
 
 export const { setCharacter } = favesSlice
+export const { addFave } = favesSlice.actions
