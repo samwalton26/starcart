@@ -1,10 +1,7 @@
-import { Grid, Divider, Button, Header, Icon } from 'semantic-ui-react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Grid, Divider, Header, Icon } from 'semantic-ui-react'
 import SearchApi from './components/SearchApi'
 import ShowButtons from './components/ShowButtons'
 const Main = () => {
-	const handleSelect = () => console.log('test')
-
 	return (
 		<>
 			<Grid columns={2} stackable textAlign="center" style={{ margin: '0 auto' }}>

@@ -1,7 +1,11 @@
 import React from 'react'
 import { Container, Header, Menu, Segment } from 'semantic-ui-react'
+import { selectCurrent } from './features/app'
 import Main from './Main'
+import { useSelector } from 'react-redux'
+import Films from './components/Films'
 function App() {
+	const current = useSelector(selectCurrent)
 	return (
 		<>
 			<Container fluid inverted>
@@ -12,9 +16,7 @@ function App() {
 				</Segment>
 			</Container>
 			<Container>
-				<Segment fluid>
-					<h3>results</h3>
-				</Segment>
+				<Segment fluid>{current === 'films' && <Films />}</Segment>
 			</Container>
 		</>
 	)

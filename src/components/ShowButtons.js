@@ -1,5 +1,10 @@
 import { Header, Divider, Button, Icon } from 'semantic-ui-react'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectCurrent, setCurrent } from './../features/app'
 const ShowButtons = () => {
+	const current = useSelector(selectCurrent)
+	const dispatch = useDispatch()
+	const handleUpdateCurrent = selected => dispatch(setCurrent(selected))
 	return (
 		<>
 			<Header icon inverted>
@@ -8,15 +13,15 @@ const ShowButtons = () => {
 			</Header>
 			<Divider hidden />
 			<Button.Group>
-				<Button active={false}>
+				<Button active={current === 'film'} onClick={() => handleUpdateCurrent('film')}>
 					<Icon name="film" />
 					Films
 				</Button>
-				<Button active={false}>
+				<Button active={current === 'people'} onClick={() => handleUpdateCurrent('people')}>
 					<Icon name="users" />
 					Characters
 				</Button>
-				<Button active={false}>
+				<Button active={current === 'starships'} onClick={() => handleUpdateCurrent('starships')}>
 					<Icon name="rocket" />
 					Starships
 				</Button>
