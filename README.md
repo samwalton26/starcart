@@ -10,9 +10,7 @@ could be ( getting progressively harder):
 
 2 we need pagination also for the results - luckily the json provides a next and previous and a total count of items
 
-###React components###
-
-## favourites UI - add new functionality / data manipulation
+## favourites UI - add new functionality 
 
 3 wire up the favourites UI component to display favourited items
 
@@ -37,12 +35,6 @@ could be ( getting progressively harder):
 10 add unit tests to key components
 
 12 refactor for peformance and to optimise component rerenders
-
----
-
-===
-
----
 
 =========== TECH STACK / GETTING STARTED ============
 
