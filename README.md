@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+## StarCart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The idea is that a user can search for star wars related stuff, films, people, planets, vehicles, starships. At the moment, the default is
+to fetch films. you can toggle results, but there's no results yet for characters ( or any of the others ), so some ideas for improvments
+could be ( getting progressively harder):
 
-## Available Scripts
+## extend current fuctionality
 
-In the project directory, you can run:
+1 wire up the endpoint to display the results for characters just like the films components work.
 
-### `npm start`
+2 we need pagination also for the results - luckily the json provides a next and previous and a total count of items
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###React components###
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## favourites UI - add new functionality / data manipulation
 
-### `npm test`
+3 wire up the favourites UI component to display favourited items
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4 add ratings functionality to favourited items
 
-### `npm run build`
+5 add sorting of favourites by rating
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6 add filters eg type / 1-star 2-star 3-start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# state management / REST api
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+7 add a 'remove favouries' button which removes that item from the favourites state slice
 
-### `npm run eject`
+8 add a new state slice for a shopping cart with methods to add, remove, edit items
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+9 add new API end points for 'vehicles' and 'planets' to services https://swapi.dev/documentation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## performance
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+11 add basic Typescript support 10 add unit tests to key components  
+12 refactor for peformance and to optimise component rerenders
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+=========== TECH STACK / GETTING STARTED ============ install vscode git with git bash for windows ( if windows ) / bash -- install nvm to
+get the latest version of nodejs $ nvm install lts $ nvm use 16.14.0 $ npm install -g npm@8.5.4 -- clone repo
+https://github.com/sjingoFOD/starcart install the packages and dependencies and start the app $npm i     
+$npm start
 
-## Learn More
+\*sometimes npm can be buggy, if you need to reinstall packages to clear any errors, then try the following command :
+$rm -rf node_modules
+$npm i $npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    -- Visual Studio Code You need to have VS Code and VS Code Chrome Debugger Extension installed. --
