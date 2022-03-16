@@ -10,7 +10,8 @@ could be ( getting progressively harder):
 
 2 we need pagination also for the results - luckily the json provides a next and previous and a total count of items
 
-## favourites UI - add new functionality 
+## favourites UI
+
 
 3 wire up the favourites UI component to display favourited items
 
@@ -20,13 +21,13 @@ could be ( getting progressively harder):
 
 6 add filters eg type / 1-star 2-star 3-start
 
-# state management / REST api
+# state
 
 7 add a 'remove favouries' button which removes that item from the favourites state slice
 
 8 add a new state slice for a shopping cart with methods to add, remove, edit items
 
-9 add new API end points for 'vehicles' and 'planets' to services https://swapi.dev/documentation
+9 add new RTKQuery API end points for 'vehicles' and 'planets' to services https://swapi.dev/documentation
 
 ## performance
 
