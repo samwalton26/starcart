@@ -20,10 +20,6 @@ the state faves array
 4 add ratings to favourited items 1 - 5 ⭐s ( you can use the ratings or other semantic-ui-react component see docs:
 https://react.semantic-ui.com/ )
 
-5 add a sort filter for favourites by star rating
-
-6 add filters to show/ hide fave by start rating et 1⭐ 2⭐⭐ 3 ⭐⭐⭐... up to 5.
-
 # state
 
 7 It's possible to add the same fave twice, extend the existing addFave function to make sure we're not adding the same fave again
