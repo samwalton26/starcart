@@ -10,6 +10,10 @@ could be ( getting progressively harder):
 
 2 we need pagination also for the results - luckily the json provides a next and previous and a total count of items ()
 
+2 a) if you want to make a reusable 'hook' you can add custom pagination logic in there b) there is a <Pagination /> component in the
+semantic react ui library
+
+
 ## favourites UI
 
     -- there's a faves component but all we can do is add, we can't delete or sort by rating.
@@ -19,6 +23,10 @@ the state faves array
 
 4 add ratings to favourited items 1 - 5 ⭐s ( you can use the ratings or other semantic-ui-react component see docs:
 https://react.semantic-ui.com/ )
+
+5 add a sort filter for favourites by star rating
+
+6 add filters to show/ hide fave by start rating et 1⭐ 2⭐⭐ 3 ⭐⭐⭐... up to 5.
 
 # state
 
