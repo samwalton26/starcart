@@ -4,11 +4,9 @@ import { nanoid } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { addFave } from '../features/faves'
 import FilmDetails from './FilmDetails'
-import usePagination from '../hooks/pagination'
 
 const Films = () => {
 	const { data, isError, isLoading } = useGetFilmsQuery()
-	const { paginatedData, activeIndex } = usePagination(data && data.results ? data.results : [])
 	const dispatch = useDispatch()
 
 	const selectFilm = e => {
