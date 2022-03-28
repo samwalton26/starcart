@@ -1,14 +1,14 @@
 # StarCart
 
-The idea is that a user can search for star wars related stuff, films, people, planets, vehicles, starships. At the moment, the default is
-to fetch films. you can toggle results, but there's no results yet for characters ( or any of the others ), so some ideas for improvements
-could be ( getting progressively harder):
+The idea is that a user create a collection of their favourite star wars related stuff: films, people, planets, vehicles, starships. At the
+moment, the default is to fetch films. you can toggle results, but there's no results yet for characters ( or any of the others ), so some
+ideas for improvments could be ( getting progressively harder):
 
 ## extend current functionality
 
 1 wire up the endpoint to display the results for characters just like the films components work. ( ie copy/paste )
 
-2 we need pagination also for the results - luckily the JSON provides a next and previous and a total count of items
+2 we need pagination also for the results - luckily the json provides a next and previous and a total count of items
 
 ## favourites UI
 
@@ -17,8 +17,7 @@ could be ( getting progressively harder):
 3 update the removeFave function <code> /features/faves/favesSlice.reducer.removeFave </code> to find and remove the selected favourite from
 the state faves array
 
-4 add ratings to favourited items 1 - 5 ⭐s ( you can use the ratings or other semantic-ui-react component see docs:
-https://react.semantic-ui.com/ )
+4 It's possible to add the same fave twice, extend the existing addFave function to make sure we're not adding the same fave again
 
 5 add a sort filter for favourites by star rating
 
@@ -34,9 +33,9 @@ https://react.semantic-ui.com/ )
 
 ## performance
 
-11 add basic Typescript support
+11 add basic Typescript support to the FaveItem component
 
-10 add unit tests to key components
+10 add unit tests to the FaveItem
 
 12 refactor for performance and to optimise component rerenders
 
@@ -57,7 +56,7 @@ npm install -g npm@8.5.4
 ## install the packages and dependencies and start the app
 
 ```bash
-npm ci     
+npm ci
 npm start
 ```
 
@@ -73,8 +72,8 @@ npm start
 ## If for some reason you can’t get the app to spin up then just have a go using ‘ npx create-react-app’ at hitting some of the endpoints, mapping the data and displaying the results as best you can.
 
 # And rather than struggle with something, just email stefan.ingolfsson@fodmobilitygroup.com and I’ll get back to you.
-    -- You are advised to have VS Code, Redux dev tools, Eslint, Prettier, VS Code Chrome Debugger Extensions installed
 
+    -- You are advised to have VS Code, Redux dev tools, Eslint, Prettier, VS Code Chrome Debugger Extensions installed
     -- useful links
 
 https://reactjs.org/
