@@ -44,7 +44,7 @@ and make sure that each item when added has a unique id
 
 9 add new RTKQuery API end points for `vehicles` and `planets` to services https://swapi.dev/documentation
 
-10 
+10 Time left? add some flair, a 'show off' feature 
 
 # TECH STACK / GETTING STARTED
 
