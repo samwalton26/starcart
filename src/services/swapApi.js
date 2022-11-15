@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Define a service using a base URL and expected endpoints
 export const swapApi = createApi({
 	reducerPath: 'api',
-	baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/' }),
+	baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.py4e.com/api/' }),
 	tagTypes: ['Films'],
 	endpoints: builder => ({
 		getFilms: builder.query({
