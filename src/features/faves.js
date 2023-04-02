@@ -1,9 +1,10 @@
-import { createSlice, current, nanoid } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from '@reduxjs/toolkit'
 
-const createFave = (fave, name) => ({
+const createFave = (fave, name, type) => ({
 	id: nanoid(),
 	rating: 5,
 	name,
+	type,
 	...fave,
 })
 const initialState = []
@@ -13,9 +14,11 @@ export const favesSlice = createSlice({
 	initialState,
 	reducers: {
 		addFave: (state, action) => {
-			const name = action.payload.name ? action.payload.name : action.payload.title ? action.payload.title : 'no name'
-			const fave = createFave(action.payload, name)
-			state.push(fave)
+			const {favName: name, favType: type} = action.payload
+			// If already exists, return current state
+			if (state.find(fav => fav.name === name)) return state
+			const fave = createFave(action.payload.favItem, name, type)
+			return [...state, fave]
 		},
 		updateFave: (state, action) => {
 			// find fave
@@ -24,18 +27,28 @@ export const favesSlice = createSlice({
 			// return state
 		},
 		rateFave: (state, action) => {
-			// find fave
-			// update new on that fave
+			const { id, rating } = action.payload
+			// find fave index
+			const faveIndex = state.findIndex(fave => fave.id === id)
+
+			// If not found, return current state
+			if (faveIndex === -1) return state
+
+			// New state array to avoid modifying state directly
+			const newState = [...state]
+
+			// update rating on that fave
+			newState[faveIndex] = {
+				...state[faveIndex],
+				rating,
+			}
+
 			// return state
+			return newState
 		},
 		removeFave: (state, action) => {
-			// const id = action.payload
-			console.log('faves', current(state))
-			/*
-			 ! remove fave code here */
-			/*
-			 * make sure to return the whole state because it's just a single array of faves */
-			// return state.???
+			const id = action.payload
+			return state.filter(fav => fav.id !== id)
 		},
 	},
 })

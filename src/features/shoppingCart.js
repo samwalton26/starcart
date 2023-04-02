@@ -1,5 +1,13 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 
+// Under the assumption when cart is implemented, the item would adhere to the below interface
+
+// interface Item {
+// 	id: string;
+// 	type: 'people' | 'starships' | 'vehicles' | 'planets' | 'films';
+// 	name: string;
+// }
+
 const createItem = item => ({
 	id: nanoid(),
 	...item,
@@ -21,12 +29,31 @@ export const cartSlice = createSlice({
 	initialState,
 	reducer: {
 		addItem: (state, action) => {
+			// action.payload --> Omit<Item, "id">
+			const {name, type} = action.payload;
+
+			// If already exists, return current state
+			if(state.find(item => item.name === name)) return state;
+
 			// create item
+			const item = createItem(action.payload)
+
+			const newState = [...state]
+
 			// add item to items
+			newState.items.push(item)
+
+			// update total
+			newState.total = Math.round(state.total + state.prices[type] * 100) / 100
+
+			// return new state
+			return newState
 		},
 		removeItem: (state, action) => {
-			// find fave
-			// remove fave
+			const id = action.payload
+
+			// find and remove item and return new state
+			return state.filter(item => item.id !== id)
 		},
 	},
 })
