@@ -6,11 +6,13 @@ import { favesSlice } from './../features/faves'
 // import { swapiApi } from './../services/base'
 import { appSlice } from '../features/app'
 import { swapApi } from '../services/swapApi'
+import { filterSlice } from '../features/filters'
 export const store = configureStore({
 	reducer: {
 		character: characterSlice.reducer,
 		film: filmSlice.reducer,
 		faves: favesSlice.reducer,
+		filters: filterSlice.reducer,
 		app: appSlice.reducer,
 		[swapApi.reducerPath]: swapApi.reducer,
 	},

@@ -7,16 +7,29 @@ const ShowButtons = () => {
 	const handleUpdateCurrent = selected => dispatch(setCurrent(selected))
 	const buttons = [
 		{
-			name: 'films',
+			name: 'Films',
+			value: 'films',
 			icon: 'film',
 		},
 		{
-			name: 'characters',
+			name: 'Characters',
+			value: 'characters',
 			icon: 'users',
 		},
 		{
-			name: 'starships',
+			name: 'Starships',
+			value: 'starships',
 			icon: 'rocket',
+		},
+		{
+			name: 'Planets',
+			value: 'planets',
+			icon: 'globe',
+		},
+		{
+			name: 'Vehicles',
+			value: 'vehicles',
+			icon: 'car',
 		},
 	]
 	return (
@@ -27,10 +40,10 @@ const ShowButtons = () => {
 				{buttons.map(button => (
 					<Button
 						key={button.name}
-						active={current === button.name}
+						active={current === button.value}
 						content={button.name}
 						icon={{ name: button.icon }}
-						onClick={() => handleUpdateCurrent(button.name)}
+						onClick={() => handleUpdateCurrent(button.value)}
 					/>
 				))}
 			</Button.Group>
